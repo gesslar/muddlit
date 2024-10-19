@@ -2,7 +2,7 @@
   "name": "muddlit",
   "displayName": "muddlit",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "gesslar",
   "repository" : "https://github.com/gesslar/muddlit",
   "engines": {
@@ -18,10 +18,10 @@
       "type": "object",
       "title": "Muddlit Configuration",
       "properties": {
-        "muddlit.binaryPath": {
+        "muddlit.muddlerPath": {
           "type": "string",
           "default": "",
-          "description": "Path to the Muddler bin directory."
+          "description": "Path to the Muddler script directory."
         }
       }
     },
@@ -33,6 +33,10 @@
       {
         "command": "muddlit.watchMuddler",
         "title": "muddlit: Build with Muddler (watch mode)"
+      },
+      {
+        "command": "muddlit.generateMuddler",
+        "title": "muddlit: Generate Muddler project"
       },
       {
         "command": "muddlit.downloadMuddler",
