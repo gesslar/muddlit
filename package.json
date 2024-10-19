@@ -1,0 +1,61 @@
+{
+  "name": "muddlit",
+  "displayName": "muddlit",
+  "description": "",
+  "version": "0.0.2",
+  "publisher": "gesslar",
+  "repository" : "https://github.com/gesslar/muddlit",
+  "engines": {
+    "vscode": "^1.93.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./src/muddlit.js",
+  "activationEvents": [],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Muddlit Configuration",
+      "properties": {
+        "muddlit.binaryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the Muddler bin directory."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "muddlit.buildMuddler",
+        "title": "muddlit: Build with Muddler"
+      },
+      {
+        "command": "muddlit.watchMuddler",
+        "title": "muddlit: Build with Muddler (watch mode)"
+      },
+      {
+        "command": "muddlit.downloadMuddler",
+        "title": "muddlit: Download Muddler"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.93.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.11.1"
+  },
+  "dependencies": {
+    "tar": "^7.4.3",
+    "unzipper": "^0.12.3"
+  },
+  "icon" : "assets/muddler.png"
+}
