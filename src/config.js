@@ -2,15 +2,15 @@ const vscode = require('vscode')
 const os = require('os')
 
 const config = {
-  getBinaryPath: function() {
+  getMuddlerPath: function() {
     const config = vscode.workspace.getConfiguration('muddlit')
-    const binaryPath = config.get('binaryPath')
-    return binaryPath || null
+    const muddlerPath = config.get('muddlerPath')
+    return muddlerPath || null
   },
 
-  updateBinaryPath: function(binaryPath) {
+  updateMuddlerPath: function(path) {
     const config = vscode.workspace.getConfiguration('muddlit')
-    config.update('binaryPath', binaryPath, vscode.ConfigurationTarget.Global)
+    config.update('muddlerPath', path, vscode.ConfigurationTarget.Global)
   },
 
   getOs: function() {

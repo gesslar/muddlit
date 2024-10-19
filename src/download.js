@@ -97,9 +97,9 @@ function doDownload(context, resource) {
             console.info(`Extracted to ${extractedDir}`);
             const os = config.getOs();
             if(os === "win32")  // Windows
-              config.updateBinaryPath(`${extractedDir}\\bin`);
+              config.updateMuddlerPath(`${extractedDir}\\bin`);
             else
-              config.updateBinaryPath(`${extractedDir}/bin`);
+              config.updateMuddlerPath(`${extractedDir}/bin`);
 
             vscode.window.showInformationMessage(`Muddler v${version} downloaded successfully.`);
           })

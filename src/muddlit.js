@@ -14,12 +14,18 @@ const msg = vscode.window.showInformationMessage
 function activate(context) {
   // Build with Muddler
   const buildCommand = vscode.commands.registerCommand('muddlit.buildMuddler', function () {
-    builder.build(false)
+    builder.build()
   });
 
   // Build with Muddler in watch mode
   const buildCommandWatch = vscode.commands.registerCommand('muddlit.watchMuddler', function () {
-    builder.build(true)
+    builder.build("watch")
+  });
+
+  // Generate project
+  const generateCommand = vscode.commands.registerCommand('muddlit.generateMuddler', function () {
+    msg(builder.getBuildCommand("generate"))
+    builder.build("generate")
   });
 
   // Download Muddler
@@ -29,6 +35,7 @@ function activate(context) {
 
   context.subscriptions.push(buildCommand)
   context.subscriptions.push(buildCommandWatch)
+  context.subscriptions.push(generateCommand)
   context.subscriptions.push(downloadCommand)
 }
 
