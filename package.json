@@ -4,7 +4,7 @@
   "description": "",
   "version": "0.1.0",
   "publisher": "gesslar",
-  "repository" : "https://github.com/gesslar/muddlit",
+  "repository": "https://github.com/gesslar/muddlit",
   "engines": {
     "vscode": "^1.93.1"
   },
@@ -61,5 +61,6 @@
     "tar": "^7.4.3",
     "unzipper": "^0.12.3"
   },
-  "icon" : "assets/muddler.png"
+  "icon": "assets/muddler.png",
+  "license": "Unlicense"
 }
