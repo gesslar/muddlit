@@ -1,10 +1,8 @@
-// The module 'vscode' contains the VS Code extensibility API
+// The module "vscode" contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const vscode = require('vscode')
-const download = require('./download')
-const builder = require('./build')
-
-const msg = vscode.window.showInformationMessage
+const vscode = require("vscode")
+const download = require("./download.js")
+const builder = require("./build.js")
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -13,25 +11,24 @@ const msg = vscode.window.showInformationMessage
  */
 function activate(context) {
   // Build with Muddler
-  const buildCommand = vscode.commands.registerCommand('muddlit.buildMuddler', function () {
+  const buildCommand = vscode.commands.registerCommand("muddlit.buildMuddler", function () {
     builder.build()
-  });
+  })
 
   // Build with Muddler in watch mode
-  const buildCommandWatch = vscode.commands.registerCommand('muddlit.watchMuddler', function () {
-    builder.build("watch")
-  });
+  const buildCommandWatch = vscode.commands.registerCommand("muddlit.watchMuddler", function () {
+    builder.watch()
+  })
 
   // Generate project
-  const generateCommand = vscode.commands.registerCommand('muddlit.generateMuddler', function () {
-    msg(builder.getBuildCommand("generate"))
-    builder.build("generate")
-  });
+  const generateCommand = vscode.commands.registerCommand("muddlit.generateMuddler", function () {
+    builder.generate()
+  })
 
   // Download Muddler
-  const downloadCommand = vscode.commands.registerCommand('muddlit.downloadMuddler', function () {
-    download(context)
-  });
+  const downloadCommand = vscode.commands.registerCommand("muddlit.downloadMuddler", function () {
+    download.downloadMuddler(context)
+  })
 
   context.subscriptions.push(buildCommand)
   context.subscriptions.push(buildCommandWatch)
