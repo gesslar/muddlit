@@ -33,7 +33,7 @@ You can use the command `muddlit: Build with muddy` to compile your project.
 
 ### Icons
 
-- [Muddlit icons created by Slamlabs - Flaticon](https://www.flaticon.com/free-icons/muddler)
+- [muddlit icons created by Slamlabs - Flaticon](https://www.flaticon.com/free-icons/muddler)
 
 ## License
 
