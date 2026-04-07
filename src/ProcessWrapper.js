@@ -68,6 +68,12 @@ export default class ProcessWrapper extends EventEmitter {
   /** @type {Terminal?} */
   #terminal = null
 
+  /** @type {boolean} */
+  #busy = false
+
+  /** @type {Array<import("vscode").Disposable>} */
+  #disposables = []
+
   /** @type {string} */
   #command
 
@@ -161,9 +167,22 @@ export default class ProcessWrapper extends EventEmitter {
    */
   #isAlive() {
     if(this.#useTerminal)
-      return this.#terminal !== null
+      return this.#busy
 
     return this.#process !== null && !this.#process.killed
+  }
+
+  /**
+   * Dispose all event listener subscriptions
+   *
+   * @private
+   */
+  #disposeListeners() {
+    for(const disposable of this.#disposables) {
+      disposable.dispose()
+    }
+
+    this.#disposables = []
   }
 
   /**
@@ -253,16 +272,30 @@ export default class ProcessWrapper extends EventEmitter {
     ].join(" ")
 
     this.#terminal.sendText(commandLine)
+    this.#busy = true
 
     this.#pid = await this.#terminal.processId
 
-    vscode.window.onDidCloseTerminal(terminal => {
-      if(terminal === this.#terminal) {
-        this.#terminal = null
-        this.#pid = null
-        this.emit("exit", null)
-      }
-    })
+    this.#disposables.push(
+      vscode.window.onDidEndTerminalShellExecution(event => {
+        if(event.terminal === this.#terminal) {
+          this.#busy = false
+          this.emit("exit", event.exitCode)
+        }
+      })
+    )
+
+    this.#disposables.push(
+      vscode.window.onDidCloseTerminal(terminal => {
+        if(terminal === this.#terminal) {
+          this.#terminal = null
+          this.#pid = null
+          this.#busy = false
+          this.#disposeListeners()
+          this.emit("exit", null)
+        }
+      })
+    )
   }
 
   /**
@@ -283,6 +316,8 @@ export default class ProcessWrapper extends EventEmitter {
 
     this.#terminal = null
     this.#pid = null
+    this.#busy = false
+    this.#disposeListeners()
   }
 
   /**

@@ -2,14 +2,15 @@
   "name": "muddlit",
   "displayName": "muddlit",
   "description": "A VS Code extension for users of @gesslar/muddy.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "gesslar",
   "repository": {
     "type": "git",
     "url": "https://github.com/gesslar/muddlit"
   },
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.110.0",
+    "node": ">=24.11.0"
   },
   "categories": [
     "Other"
