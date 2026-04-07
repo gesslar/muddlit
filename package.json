@@ -1,66 +1,70 @@
 {
   "name": "muddlit",
   "displayName": "muddlit",
-  "description": "",
+  "description": "A VS Code extension for users of @gesslar/muddy.",
   "version": "0.1.0",
   "publisher": "gesslar",
-  "repository": "https://github.com/gesslar/muddlit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gesslar/muddlit"
+  },
   "engines": {
-    "vscode": "^1.93.1"
+    "vscode": "^1.110.0"
   },
   "categories": [
     "Other"
   ],
-  "main": "./src/muddlit.js",
+  "type": "module",
+  "main": "./src/ritual-sacrifice-to-cjs.cjs",
   "activationEvents": [],
   "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Muddlit Configuration",
-      "properties": {
-        "muddlit.muddlerPath": {
-          "type": "string",
-          "default": "",
-          "description": "Path to the Muddler script directory."
-        }
-      }
-    },
     "commands": [
       {
-        "command": "muddlit.buildMuddler",
-        "title": "muddlit: Build with Muddler"
+        "command": "muddlit.build",
+        "title": "muddlit: Build with muddy"
       },
       {
-        "command": "muddlit.watchMuddler",
-        "title": "muddlit: Build with Muddler (watch mode)"
+        "command": "muddlit.watch",
+        "title": "muddlit: Build with muddy (watch mode)"
       },
       {
-        "command": "muddlit.generateMuddler",
-        "title": "muddlit: Generate Muddler project"
+        "command": "muddlit.generate",
+        "title": "muddlit: Generate muddy project"
       },
       {
-        "command": "muddlit.downloadMuddler",
-        "title": "muddlit: Download Muddler"
+        "command": "muddlit.stop",
+        "title": "muddlit: Stop muddy watch mode"
       }
     ]
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "update": "npx npm-check-updates -u && npm install",
+    "pr": "gt submit -p --ai",
+    "package": "npx @vscode/vsce package --no-dependencies --skip-license -o vsix/",
+    "publish:vsce": "npm run package && npx @vscode/vsce publish --packagePath vsix/*.vsix --pat $VSX_MARKETPLACE_ACCESS_TOKEN",
+    "publish:ovsx": "npm run package && npx ovsx publish --packagePath vsix/*.vsix --pat $OVSX_ACCESS_TOKEN",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.8",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.93.1",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
-    "eslint": "^9.11.1"
+    "@gesslar/uglier": "^2.4.0",
+    "@types/node": "^25.5.2",
+    "@types/vscode": "^1.110.0",
+    "eslint": "^10.2.0"
   },
   "dependencies": {
-    "tar": "^7.4.3",
-    "unzipper": "^0.12.3"
+    "@gesslar/toolkit": "^5.0.1",
+    "ps-list": "^9.0.0"
   },
   "icon": "assets/muddler.png",
-  "license": "Unlicense"
+  "license": "0BSD",
+  "keywords": [
+    "muddy",
+    "mud",
+    "lua",
+    "mudlet"
+  ]
 }

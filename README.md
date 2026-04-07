@@ -1,51 +1,48 @@
 # muddlit
 
 This extension provides for a simplified way to compile Mudlet packages
-in Visual Studio Code.
+in Visual Studio Code using [@gesslar/muddy](https://www.npmjs.com/package/@gesslar/muddy).
 
 ## Commands
 
-- `muddlit: Download Muddler` - Downloads Muddler
-- `muddlit: Build with Muddler` - Compiles Mudlet packages with a single command
-- `muddlit: Watch with Muddler (watch mode)` - Compiles Mudlet packages in watch mode
-- `muddlit: Generate Muddler project` - Generates a new Muddler project
-
-## Settings
-
-- `muddlit.muddlerPath` - The path to the Muddler script directory
+- `muddlit: Build with muddy` - Compiles Mudlet packages with a single command
+- `muddlit: Build with muddy (watch mode)` - Compiles Mudlet packages in watch mode
+- `muddlit: Generate muddy project` - Generates a new muddy project
 
 ## Documentation
 
-### Downloading Muddler
+### Generating a muddy project
 
-If you don't already have Muddler, you can use the command `muddlit: Download Muddler` to download it from the Command Palette.
-
-If you already have Muddler, you can set the path to the Muddler script
-directory in the settings.
-
-Downloading Muddler via the command will set the path for you.
-
-### Generating a Muddler project
-
-You can use the command `muddlit: Generate Muddler project` to generate a new
-Muddler project. This will open up a terminal and run the Muddler generate
+You can use the command `muddlit: Generate muddy project` to generate a new
+muddy project. This will open up a terminal and run the muddy generate
 command, prompting you with several questions about your new project.
 
 Note that the generated project will be placed in a new directory with the name
 you provide. You will need to move the contents of the generated directory into
 the root of your workspace/repo.
 
-### Building with Muddler
+### Building with muddy
 
-You can use the command `muddlit: Build with Muddler` to compile your project.
-
+You can use the command `muddlit: Build with muddy` to compile your project.
 
 ## Credits
 
-### Muddler
+### muddy
 
-- [muddler](https://github.com/demonnic/muddler)
+- [@gesslar/muddy](https://www.npmjs.com/package/@gesslar/muddy)
 
 ### Icons
 
-- [Muddler icons created by Slamlabs - Flaticon](https://www.flaticon.com/free-icons/muddler)
+- [Muddlit icons created by Slamlabs - Flaticon](https://www.flaticon.com/free-icons/muddler)
+
+## License
+
+`muddlit` is released into the public domain under the [0BSD](LICENSE.txt).
+
+This package includes or depends on third-party components under their own
+licenses:
+
+| Dependency | License |
+| --- | --- |
+| [@gesslar/toolkit](https://github.com/gesslar/toolkit) | 0BSD |
+| [ps-list](https://github.com/sindresorhus/ps-list) | MIT |
