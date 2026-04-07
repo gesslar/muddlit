@@ -16,7 +16,7 @@
     "Other"
   ],
   "type": "module",
-  "main": "./src/ritual-sacrifice-to-cjs.cjs",
+  "main": "./dist/ritual-sacrifice-to-cjs.cjs",
   "activationEvents": [],
   "contributes": {
     "commands": [
@@ -39,11 +39,14 @@
     ]
   },
   "scripts": {
+    "build": "node esbuild.config.js --production",
+    "build:dev": "node esbuild.config.js",
+    "build:watch": "node esbuild.config.js --watch",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "update": "npx npm-check-updates -u && npm install",
     "pr": "gt submit -p --ai",
-    "package": "npx @vscode/vsce package --no-dependencies --skip-license -o vsix/",
+    "package": "npm run build && npx @vscode/vsce package --no-dependencies --skip-license -o vsix/",
     "publish:vsce": "npm run package && npx @vscode/vsce publish --packagePath vsix/*.vsix --pat $VSX_MARKETPLACE_ACCESS_TOKEN",
     "publish:ovsx": "npm run package && npx ovsx publish --packagePath vsix/*.vsix --pat $OVSX_ACCESS_TOKEN",
     "patch": "npm version patch",
@@ -54,6 +57,7 @@
     "@gesslar/uglier": "^2.4.0",
     "@types/node": "^25.5.2",
     "@types/vscode": "^1.110.0",
+    "esbuild": "^0.28.0",
     "eslint": "^10.2.0"
   },
   "dependencies": {
