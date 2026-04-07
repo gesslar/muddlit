@@ -1,0 +1,19 @@
+name: Quality
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "20 14 * * 1"
+
+jobs:
+  Quality:
+    uses: gesslar/Maint/.github/workflows/Quality.yaml@main
+    secrets: inherit
+    with:
+      package_manager: "auto"
+      perform_linting: "${{ vars.PERFORM_LINTING || 'yes' }}"
+      perform_testing: "${{ vars.PERFORM_TESTING || 'no' }}"
