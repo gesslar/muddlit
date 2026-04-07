@@ -1,5 +1,7 @@
 node_modules/
+src/
 fixtures/
+esbuild.config.js
 output/
 *.vsix
 temp/

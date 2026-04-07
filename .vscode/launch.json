@@ -12,7 +12,8 @@
       "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--disable-extensions",
-      ]
+      ],
+      "preLaunchTask": "npm: build:dev"
     }
   ]
 }
