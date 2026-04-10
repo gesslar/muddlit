@@ -37,7 +37,7 @@ You can use the command `muddlit: Build with muddy` to compile your project.
 
 ## License
 
-`muddlit` is released into the public domain under the [0BSD](LICENSE.txt).
+`muddlit` is released under the [0BSD](LICENSE.txt).
 
 This package includes or depends on third-party components under their own
 licenses:
