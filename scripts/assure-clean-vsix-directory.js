@@ -21,7 +21,7 @@ try {
     const stats = statSync(dir)
 
     if(!stats.isDirectory()) {
-      console.error(`'${dir} is not a directory.`)
+      console.error(`'${dir}' is not a directory.`)
       process.exit(1)
     }
   } else {
