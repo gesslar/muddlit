@@ -16,7 +16,7 @@
     "Other"
   ],
   "type": "module",
-  "main": "./dist/ritual-sacrifice-to-cjs.cjs",
+  "main": "./src/ritual-sacrifice-to-cjs.cjs",
   "activationEvents": [],
   "contributes": {
     "commands": [

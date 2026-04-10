@@ -1,5 +1,5 @@
 node_modules
-dist/extension.mjs
-dist/extension.mjs.map
+src/extension.mjs
+src/extension.mjs.map
 .vscode-test/
 *.vsix
