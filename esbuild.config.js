@@ -14,9 +14,9 @@ const banner = {
 }
 
 const config = {
-  entryPoints: ["src/extension.js"],
+  entryPoints: ["src/Muddlit.js"],
   bundle: true,
-  outfile: "dist/extension.mjs",
+  outfile: "src/extension.mjs",
   external: ["vscode", ...nodeBuiltins],
   format: "esm",
   platform: "node",
