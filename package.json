@@ -2,7 +2,7 @@
   "name": "muddlit",
   "displayName": "muddlit",
   "description": "A VS Code extension for users of @gesslar/muddy.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "gesslar",
   "repository": {
     "type": "git",
