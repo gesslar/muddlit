@@ -11,10 +11,26 @@
  * If [dir] is omitted, defaults to "vsix/" relative to cwd.
  */
 
-import {readdirSync, unlinkSync} from "node:fs"
+import {existsSync, mkdirSync, readdirSync, statSync, unlinkSync} from "node:fs"
 import {join, resolve} from "node:path"
 
 const dir = resolve(process.argv[2] || "vsix")
+
+try {
+  if(existsSync(dir)) {
+    const stats = statSync(dir)
+
+    if(!stats.isDirectory()) {
+      console.error(`'${dir} is not a directory.`)
+      process.exit(1)
+    }
+  } else {
+    mkdirSync(dir)
+  }
+} catch {
+  process.exit(0)
+}
+
 
 const vsixFiles = readdirSync(dir).filter(f => f.endsWith(".vsix"))
 
