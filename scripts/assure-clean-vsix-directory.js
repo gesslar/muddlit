@@ -31,7 +31,6 @@ try {
   process.exit(1)
 }
 
-
 const vsixFiles = readdirSync(dir).filter(f => f.endsWith(".vsix"))
 
 for(const file of vsixFiles) {
