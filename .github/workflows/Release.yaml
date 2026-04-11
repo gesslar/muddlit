@@ -14,16 +14,16 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
 
-      - run: npm install --omit=dev
+      - run: npm install
 
-      - run: npx @vscode/vsce package --skip-license
+      - run: npm run package
 
       - uses: actions/upload-artifact@v4
         with:
           name: vsix
-          path: "*.vsix"
+          path: "vsix/*.vsix"
 
   Release:
     needs: Build
