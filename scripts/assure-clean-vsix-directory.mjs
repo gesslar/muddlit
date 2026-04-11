@@ -7,7 +7,6 @@
  *
  * Usage:
  *   node scripts/assure-clean-vsix-directory.mjs
- *
  */
 
 import {existsSync, mkdirSync, readdirSync, statSync, unlinkSync} from "node:fs"
