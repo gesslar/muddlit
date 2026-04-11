@@ -9,7 +9,7 @@
     "url": "https://github.com/gesslar/muddlit"
   },
   "engines": {
-    "vscode": "^1.110.0",
+    "vscode": "^1.115.0",
     "node": ">=24.11.0"
   },
   "categories": [
@@ -56,8 +56,8 @@
   },
   "devDependencies": {
     "@gesslar/uglier": "^2.4.0",
-    "@types/node": "^25.5.2",
-    "@types/vscode": "^1.110.0",
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.115.0",
     "esbuild": "^0.28.0",
     "eslint": "^10.2.0"
   },
