@@ -34,10 +34,3 @@ try {
   console.error(error)
   process.exit(1)
 }
-
-const vsixFiles = readdirSync(dir).filter(f => f.endsWith(".vsix"))
-
-for(const file of vsixFiles) {
-  console.log(`Removing ${file}`)
-  unlinkSync(join(dir, file))
-}
