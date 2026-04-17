@@ -2,8 +2,8 @@ name: Release
 
 on:
   pull_request:
-    types: [closed]
-    branches: [main]
+    types: [ closed ]
+    branches: [ main ]
 
 jobs:
   Build:
@@ -30,7 +30,6 @@ jobs:
     uses: gesslar/Maint/.github/workflows/ReleaseOnly.yaml@main
     secrets: inherit
     with:
-      quality_check: "Quality"
-      artefacts: '["vsix"]'
+      artefacts: "[\"vsix\"]"
     permissions:
       contents: write
