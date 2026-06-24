@@ -48,8 +48,9 @@
     "prepackage": "node scripts/assure-clean-vsix-directory.mjs",
     "package": "npm run build && npx @vscode/vsce package --no-dependencies --skip-license -o vsix/",
     "premarket": "npm run package",
-    "publish:vsce": "npm run premarket && npx @vscode/vsce publish --packagePath vsix/*.vsix --pat $VSX_MARKETPLACE_ACCESS_TOKEN",
-    "publish:ovsx": "npm run premarket && npx ovsx publish --packagePath vsix/*.vsix --pat $OVSX_ACCESS_TOKEN",
+    "publish:vsce": "npm run premarket && npx -y @vscode/vsce publish --packagePath vsix/*.vsix --pat $VSX_MARKETPLACE_ACCESS_TOKEN",
+    "publish:ovsx": "npm run premarket && npx -y ovsx publish --packagePath vsix/*.vsix --pat $OVSX_ACCESS_TOKEN",
+    "publish": "npm run publish:vsce && npm run publish:ovsx",
     "patch": "npm version patch",
     "minor": "npm version minor",
     "major": "npm version major"
