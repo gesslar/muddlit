@@ -55,14 +55,14 @@
     "major": "npm version major"
   },
   "devDependencies": {
-    "@gesslar/uglier": "^2.4.0",
-    "@types/node": "^25.6.0",
-    "@types/vscode": "^1.115.0",
-    "esbuild": "^0.28.0",
-    "eslint": "^10.2.0"
+    "@gesslar/uglier": "^2.4.1",
+    "@types/node": "^26.0.1",
+    "@types/vscode": "^1.125.0",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.5.0"
   },
   "dependencies": {
-    "@gesslar/toolkit": "^5.0.1",
+    "@gesslar/toolkit": "^5.6.0",
     "ps-list": "^9.0.0"
   },
   "icon": "assets/muddler.png",
